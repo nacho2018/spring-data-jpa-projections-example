@@ -18,7 +18,7 @@ public interface CustomerService {
      *
      * @return List<CustomerDetailsDTO>
      */
-    List<CustomerDetailsDTO> getCustomersAndOrderData() throws Exception;
+    List<CustomerDetailsDTO> getCustomersAndOrderData() ;
 
     /**
      * Search for customer based on first name.
@@ -26,11 +26,11 @@ public interface CustomerService {
      * @param firstName the firstname
      * @return List<CustomerDetailsDTO>
      */
-    List<CustomerDetailsDTO> searchCustomerByFirstName(String firstName) throws  Exception;
+    List<CustomerDetailsDTO> searchCustomerByFirstName(String firstName) ;
 
     /**
      * Search customers and order data in simple output format
      *  @return List<CustomerSimplifiedDTO>
      */
-    List<CustomerSimplifiedDTO> getCustomersAndOrderDataSimpleVersion() throws Exception;
+    List<CustomerSimplifiedDTO> getCustomersAndOrderDataSimpleVersion() ;
 }
