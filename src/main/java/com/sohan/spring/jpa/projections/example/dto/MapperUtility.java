@@ -15,4 +15,17 @@ public class MapperUtility {
         }
         return order;
     }
+
+    public OrderSimplifiedDTO buildSimplifiedOrderDTO(Long orderNumber){
+        OrderSimplifiedDTO orderDTO = null;
+
+        if (orderNumber != null && orderNumber > 0){
+            orderDTO = new OrderSimplifiedDTO();
+            orderDTO.setOrderNumber(orderNumber);
+
+        }
+
+        return orderDTO;
+
+    }
 }

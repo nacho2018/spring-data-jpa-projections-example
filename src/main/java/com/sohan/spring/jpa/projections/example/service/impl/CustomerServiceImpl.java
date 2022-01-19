@@ -2,6 +2,7 @@ package com.sohan.spring.jpa.projections.example.service.impl;
 
 import com.sohan.spring.jpa.projections.example.dao.CustomerRepository;
 import com.sohan.spring.jpa.projections.example.dto.CustomerDetailsDTO;
+import com.sohan.spring.jpa.projections.example.dto.CustomerSimplifiedDTO;
 import com.sohan.spring.jpa.projections.example.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,18 +29,23 @@ public class CustomerServiceImpl implements CustomerService {
      * @return CustomerDetailsDTO
      */
     @Override
-    public List<CustomerDetailsDTO> getCustomersAndOrderData() throws Exception {
+    public List<CustomerDetailsDTO> getCustomersAndOrderData()  {
         return customerRepository.getCustomerDetails();
     }
 
     /**
      * Search for customer based on first name.
      *
-     * @param firstName
+     * @param firstName the firstname
      * @return List<CustomerDetailsDTO>
      */
     @Override
-    public List<CustomerDetailsDTO> searchCustomerByFirstName(String firstName) throws  Exception {
+    public List<CustomerDetailsDTO> searchCustomerByFirstName(String firstName)  {
         return customerRepository.searchCustomerByFirstName(firstName);
+    }
+
+    @Override
+    public List<CustomerSimplifiedDTO> getCustomersAndOrderDataSimpleVersion()  {
+        return customerRepository.getCustomerSimplifiedData();
     }
 }

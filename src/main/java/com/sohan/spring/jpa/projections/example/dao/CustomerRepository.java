@@ -2,6 +2,7 @@ package com.sohan.spring.jpa.projections.example.dao;
 
 import com.sohan.spring.jpa.projections.example.dao.entities.CustomerEntity;
 import com.sohan.spring.jpa.projections.example.dto.CustomerDetailsDTO;
+import com.sohan.spring.jpa.projections.example.dto.CustomerSimplifiedDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -37,4 +38,11 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Intege
      */
     @Query(name = "customerEntity.searchCustomerByFirstName", nativeQuery = true)
     List<CustomerDetailsDTO> searchCustomerByFirstName(@Param("firstName") String firstName);
+
+    /**
+     * Return a list of simplified info on customers and orders
+     * @return  List<CustomerSimplifiedDTO>
+     */
+    @Query(name="customerEntity.searchSimplified", nativeQuery = true)
+    List<CustomerSimplifiedDTO> getCustomerSimplifiedData();
 }

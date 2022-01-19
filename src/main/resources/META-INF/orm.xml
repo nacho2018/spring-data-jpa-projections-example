@@ -38,5 +38,15 @@
                  cust.FIRST_NAME = :firstName
          ]]></query>
     </named-native-query>
+    <named-native-query name="customerEntity.searchSimplified">
+    <query><![CDATA[
+            SELECT
+               c.FIRST_NAME as firstname,
+               c.LAST_NAME as lastname,
+               c.CITY as city,
+               co.ORDER_NUMBER as orderNumber from CUSTOMER c
+               left join CUSTOMER_ORDER co on c.ID = co.CUSTOMER_ID
+           ]]></query>
 
+    </named-native-query>
 </entity-mappings>

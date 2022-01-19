@@ -1,6 +1,7 @@
 package com.sohan.spring.jpa.projections.example.controller;
 
 import com.sohan.spring.jpa.projections.example.dto.CustomerDetailsDTO;
+import com.sohan.spring.jpa.projections.example.dto.CustomerSimplifiedDTO;
 import com.sohan.spring.jpa.projections.example.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -41,11 +42,20 @@ public class CustomerController {
     /**
      * Search for customer based on first name.
      *
-     * @param firstName
+     * @param firstName the firstname
      * @return List<CustomerDetailsDTO>
      */
     @RequestMapping(value = "/customers/~/search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CustomerDetailsDTO> searchCustomerByFirstName(@RequestParam("firstname") String firstName) throws Exception {
         return customerService.searchCustomerByFirstName(firstName);
+    }
+    /**
+     * Search for customer in simple output format
+     *
+     * @return List<CustomerDetailsDTO>
+     */
+    @RequestMapping(value = "/customers/simple", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CustomerSimplifiedDTO> getCustomersSimpleWay() throws Exception {
+        return customerService.getCustomersAndOrderDataSimpleVersion();
     }
 }

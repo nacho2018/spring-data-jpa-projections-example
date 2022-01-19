@@ -1,6 +1,7 @@
 package com.sohan.spring.jpa.projections.example.service;
 
 import com.sohan.spring.jpa.projections.example.dto.CustomerDetailsDTO;
+import com.sohan.spring.jpa.projections.example.dto.CustomerSimplifiedDTO;
 
 import java.util.List;
 
@@ -22,8 +23,14 @@ public interface CustomerService {
     /**
      * Search for customer based on first name.
      *
-     * @param firstName
+     * @param firstName the firstname
      * @return List<CustomerDetailsDTO>
      */
     List<CustomerDetailsDTO> searchCustomerByFirstName(String firstName) throws  Exception;
+
+    /**
+     * Search customers and order data in simple output format
+     *  @return List<CustomerSimplifiedDTO>
+     */
+    List<CustomerSimplifiedDTO> getCustomersAndOrderDataSimpleVersion() throws Exception;
 }
